@@ -14,6 +14,7 @@ public:
     T &operator[](unsigned int);
     my_arr &operator=(const my_arr<T> &);
     bool operator==(const my_arr<T> &);
+    ~my_arr();
 
     my_arr(const my_arr &) = delete;
     my_arr(my_arr &&) = delete;
@@ -78,6 +79,11 @@ bool my_arr<T>::operator==(const my_arr<T> &other)
         }
     }
     return true;
+}
+template<typename T>
+my_arr<T>::~my_arr()
+{
+    delete[] arr;
 }
 
 #endif //_MY_ARR_H_
